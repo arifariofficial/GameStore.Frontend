@@ -5,8 +5,10 @@
 *.dylib
 *.log
 *.obj
-*.bin
 *.userprefs
+
+bin/
+obj/
 
 # Visual Studio
 .vscode/
