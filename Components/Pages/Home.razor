@@ -1,7 +1,52 @@
 ﻿@page "/"
+@using Models
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world! How are you?</h1>
+<table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
+        <th>Id</th>
+        <th>Name</th>
+        <th>Genre</th>
+        <th class="text-end">Price</th>
+        <th>Release Date</th>
+    </thead>
+    <tbody>
+        @foreach (var game in games)
+        {
+            <tr>
+                <td>@game.Id</td>
+                <td>@game.Name</td>
+                <td>@game.Genre</td>
+                <td class="text-end">@game.Price.ToString("C2")</td>
+                <td>@game.ReleaseDate</td>
+            </tr>
+        }
+    </tbody>
+</table>
 
-Welcome to your new app.
+@code {
+    private GameSummary[] games = [
+    new (){
+Id = 1,
+Name = "Street Figher 2",
+Genre = "Fighting",
+Price = 19.99M,
+ReleaseDate = new DateOnly(1992, 7, 15)
+},
+new () {
+Id = 2,
+Name = "Final Fantasy XIV",
+Genre = "Roleplaying",
+Price = 59.99M,
+ReleaseDate = new DateOnly(2010, 9, 30)
+},
+new () {
+Id = 3,
+Name = "Fifa 23",
+Genre = "Sports",
+Price = 69.99M,
+ReleaseDate = new DateOnly(2022, 9, 27)
+}
+    ];
+}
