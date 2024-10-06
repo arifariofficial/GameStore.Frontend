@@ -15,7 +15,7 @@ public class GamesClient(HttpClient httpClient)
             throw new Exception($"Game with id {id} not found");
 
     public async Task UpdateGameAsync(GameDetails updatedGame)
-        => await httpClient.PutAsJsonAsync("games/{updatedGame.Id}", updatedGame);
+        => await httpClient.PutAsJsonAsync($"games/{updatedGame.Id}", updatedGame);
 
     public async Task DeleteGameAsync(int id)
         => await httpClient.DeleteAsync($"games/{id}");
